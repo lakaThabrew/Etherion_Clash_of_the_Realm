@@ -1,0 +1,13 @@
+id,name,kingdom,difficulty,villainId
+M1,Awakening of the Elements,Air,easy,1
+M2,Trial of theTempest,Air,easy,2
+M3,The Shadow Dual,Air,easy,3
+M4,Curse of the Deep,Water,easy,4
+M5,Ice bound Wrath,Water,medium,5
+M6,The Phantom's Trial,Water,medium,6
+M7,Earthborn Colossus,Earth,medium,7
+M8,Blood Moon Ritual,Earth,Earth,medium,8
+M9,Flames of the Forgotten temple,Earth,hard,9
+M10,Thunder King's Challenge,Fire,hard,10
+M11,Celestial Convergence,Fire,hard,11
+M12,The Etherion,Fire,hard,12

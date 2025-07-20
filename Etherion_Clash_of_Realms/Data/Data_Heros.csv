@@ -1,0 +1,6 @@
+id,name,element,attack,defense,speed,price
+H1,Kael Draven,Fire,10,10,0.1,300
+H2,Sylva Zephyris,Water,25,18,0.25,1000
+H3,Oryan Stoneguard,Earth,75,25,0.45,2500
+H4,Nyx Umbralis,Air,175,35,0.75,5000
+H5,Aziel Stormbane,"Fire and Air",300,48,1.0,10000

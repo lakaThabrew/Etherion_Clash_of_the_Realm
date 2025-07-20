@@ -1,0 +1,12 @@
+id,name,element,attackValue,price,uses
+P0,Normal Punch,Neutral,50,0,999
+P1,Fire Burst,Fire,100,100,01
+P2,Aqua Surge,Water,125,125,01
+P3,Gale Strike,Wind,150,150,02
+P4,Rock Slam,Earth,300,300,02
+P5,Flame Dash,Fire,400,500,02
+P6,Tidal power,Water,500,1000,03
+P7,Storm Thunder,Wind,600,1000,03
+P8,Earthen Shot,Earth,700,1500,03
+P9,Lighting Spear,Fire,800,2000,03
+P10,Eclipse Rage,All,1000,3500,03

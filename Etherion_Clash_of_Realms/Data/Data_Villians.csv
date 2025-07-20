@@ -1,0 +1,13 @@
+id,name,element,missionId,attack,defense,speed,specialPowers,shield
+V1,Shadow Sentinel,Air,M1,10,10,0.1,P3,_
+V2,Storm Reaver,Air,M2,15,15,0.2,P7,S1
+V3,Tyrant Storm,Air,M3,50,18,0.2,P3;P7,S1
+V4,Abyssal Serpent,Water,M4,100,20,0.3,P2;P6,S1
+V5,Frost Revenant,Water,M5,120,24,0.3,P1;P3;P6,S2
+V6,Spirit Walker,Water,M6,150,28,0.3,P5;P6;P7,S2
+V7,Stone Titan,Earth,M7,180,30,0.4,P4;P5;P7,S3
+V8,Demon Lord Raizel,Earth,M8,180,35,0.4,P5;P7;P8,S3
+V9,Sand Warden,Earth,M9,200,40,0.4,P6;P7;P8,S4
+V10,Eclipse Assassin,Fire,M10,220,42,0.5,P1;P5;P9,S4
+V11,The Cosmos,Fire,M11,250,45,0.5,P6;P8;P9,S5
+V12,Shadow Emperor,All,M12,300,48,0.5,P7;P9;P10,S5
