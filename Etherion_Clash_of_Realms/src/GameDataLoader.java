@@ -22,8 +22,10 @@ public class GameDataLoader implements Serializable
         loadShields(shieldsFile);
     }
 
-    public void loadHeroes(String filename) throws IOException {
-        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+    public void loadHeroes(String filename) throws IOException 
+    {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) 
+        {
             String line;
             String header = reader.readLine();
             if (header == null) return;
@@ -42,8 +44,10 @@ public class GameDataLoader implements Serializable
         }
     }
 
-    public void loadMissions(String filename) throws IOException {
-        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+    public void loadMissions(String filename) throws IOException 
+    {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) 
+        {
             String line;
             String header = reader.readLine();
             if (header == null) return;
@@ -58,8 +62,10 @@ public class GameDataLoader implements Serializable
         }
     }
 
-    public void loadVillains(String filename) throws IOException {
-        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+    public void loadVillains(String filename) throws IOException 
+    {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) 
+        {
             String line;
             String header = reader.readLine();
             if (header == null) return;
@@ -79,8 +85,10 @@ public class GameDataLoader implements Serializable
         }
     }
 
-    public void loadPowers(String filename) throws IOException {
-        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+    public void loadPowers(String filename) throws IOException 
+    {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) 
+        {
             String line;
             String header = reader.readLine();
             if (header == null) return;
@@ -97,8 +105,10 @@ public class GameDataLoader implements Serializable
         }
     }
 
-    public void loadShields(String filename) throws IOException {
-        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+    public void loadShields(String filename) throws IOException 
+    {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) 
+        {
             String line;
             String header = reader.readLine();
             if (header == null) return;
@@ -118,18 +128,21 @@ public class GameDataLoader implements Serializable
 
     public HashMap<String, Hero> getHeroes() 
     {
+        /*
         for (Hero hero : heroes.values()) {
             System.out.println(hero.toString()); // Print each hero's details
         }
+            */
         return heroes;
     }
 
     public HashMap<String, Villain> getVillains() 
     {
+        /*
         for (Villain villain : villains.values()) 
         {
             System.out.println(villain.toString()); // Print each villain's details
-        }
+        }*/
         return villains;
     }
 

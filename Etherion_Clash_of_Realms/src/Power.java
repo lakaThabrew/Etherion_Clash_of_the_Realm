@@ -8,16 +8,17 @@ public class Power implements Serializable
     private int attackValue;
     private int price;
     private int usesRemaining;
-    private int uses = usesRemaining;
+    private int uses;
 
-    public Power(String Id, String name, String element, int attackValue, int price, int usesRemaining) 
+    public Power(String Id, String name, String element, int attackValue, int price, int uses) 
     {
         this.Id = Id;
         this.name = name;
         this.element = element;
         this.attackValue = attackValue;
         this.price = price;
-        this.usesRemaining = usesRemaining;
+        this.uses = uses;
+        this.usesRemaining = uses;
     }
 
     // Getters
@@ -53,9 +54,7 @@ public class Power implements Serializable
 
     public void use() 
     {
-        if (usesRemaining > 0) {
-            usesRemaining--;
-        }
+        usesRemaining--;
     }
 
     public void renew() 
@@ -71,7 +70,7 @@ public class Power implements Serializable
                 ", element='" + element + '\'' +
                 ", attackValue=" + attackValue +
                 ", price=" + price +
-                ", uses" + uses +
+                ", uses=" + uses +
                 '}';
     }
 }

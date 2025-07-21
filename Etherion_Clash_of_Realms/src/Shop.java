@@ -6,11 +6,13 @@ public class Shop implements Serializable
 {
     private GameDataLoader dataLoader;
     private Player player;
+    private Scanner scanner;
 
-    public Shop(GameDataLoader dataLoader, Player player)
+    public Shop(GameDataLoader dataLoader, Player player, Scanner scanner)
     {
         this.dataLoader = dataLoader;
         this.player = player;
+        this.scanner = scanner;
     }
 
     public void openShop() 
@@ -25,7 +27,6 @@ public class Shop implements Serializable
             System.out.println("4. Return");
             System.out.print("Your choice: ");
 
-            Scanner scanner = new Scanner(System.in);
             int shopChoice = scanner.nextInt();
             scanner.nextLine();
 
@@ -94,6 +95,7 @@ public class Shop implements Serializable
                     {
                         player.addShield(selected);
                         System.out.println("Shield bought successfully.");
+                        player.setCurrentShield();
                     } 
                     else 
                     {
@@ -127,6 +129,7 @@ public class Shop implements Serializable
                         {
                             player.addHero(selected);
                             System.out.println("Hero Character bought successfully.");
+                            player.setCurrentHero();
                         }
                         else 
                         {

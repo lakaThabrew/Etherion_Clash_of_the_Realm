@@ -37,12 +37,13 @@ public class GameEngine implements Serializable
                                             "D:\\Games\\Etherion_Clash_of_Realms\\Data\\Data_Powers.csv", 
                                             "D:\\Games\\Etherion_Clash_of_Realms\\Data\\Data_Shields.csv");
 
+             /*                               
             System.out.println("Heroes: " + dataLoader.getHeroes());
             System.out.println("Villains: " + dataLoader.getVillains());
             System.out.println("Missions: " + dataLoader.getMissions());
             System.out.println("Powers: " + dataLoader.getPowers());
-            System.out.println("Shields: " + dataLoader.getShields());
-            System.out.println("\n\nGame data loaded successfully!");
+            System.out.println("Shields: " + dataLoader.getShields());*/
+            System.out.println("\nGame data loaded successfully!\n");
         } 
         catch (IOException e) 
         {
@@ -170,7 +171,7 @@ public class GameEngine implements Serializable
         System.out.print("Choose an option: ");
         
         int choice = scanner.nextInt();
-        scanner.nextLine(); 
+        scanner.nextLine(); // consume newline
         
         switch(choice) 
         {
@@ -192,17 +193,18 @@ public class GameEngine implements Serializable
             default:
                 System.out.println("Invalid choice!");
         }
-    }
+}
+
     
     private void startBattle() 
     {
-        Battle battle = new Battle(player, dataLoader);
+        Battle battle = new Battle(player, dataLoader, scanner);
         battle.start();
     }
     
     private void Shop() 
     {
-        Shop shop =  new Shop(dataLoader, player);
+        Shop shop =  new Shop(dataLoader, player, scanner);
         shop.openShop();
     }
     
@@ -255,7 +257,6 @@ public class GameEngine implements Serializable
         catch (IOException | ClassNotFoundException e) 
         {
             System.err.println("Failed to load game: " + e.getMessage());
-            return;
         }
     }
 

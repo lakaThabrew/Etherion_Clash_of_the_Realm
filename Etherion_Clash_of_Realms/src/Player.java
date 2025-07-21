@@ -142,7 +142,6 @@ public class Player implements Serializable
         System.out.print("Enter hero id: ");
         Scanner scanner = new Scanner(System.in);
         String choice = scanner.next();
-        scanner.close();
 
         if (heroes.containsKey(choice))
         {
@@ -174,7 +173,6 @@ public class Player implements Serializable
         System.out.print("Enter shield id: ");
         Scanner scanner = new Scanner(System.in);
         String choice = scanner.next();
-        scanner.close();
 
         if (shields.containsKey(choice))
         {

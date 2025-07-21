@@ -8,15 +8,16 @@ import java.util.HashMap;
 public class Battle implements Serializable{
     private Player player;
     private GameDataLoader dataLoader;
+    private Scanner scanner;
 
-    public Battle(Player player, GameDataLoader dataLoader) {
+    public Battle(Player player, GameDataLoader dataLoader, Scanner scanner) {
         this.player = player;
         this.dataLoader = dataLoader;
+        this.scanner = scanner;
     }
 
     protected void start() 
     {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("\n=== Battle ===");
 
         // Get current mission based on player level
@@ -26,7 +27,6 @@ public class Battle implements Serializable{
 
         if (level >= dataLoader.getMissions().size()) {
             System.out.println("All missions completed! No more battles.");
-            scanner.close();
             return;
         }
 
@@ -95,6 +95,12 @@ public class Battle implements Serializable{
             System.out.println("You lost 100 coins.");
         }
         System.out.println("Battle ended. Returning to main menu.");
+
+        for (Power i : player.getPowers().values())
+        {
+            i.renew(); // Renew all powers after battle
+        }
+
         return;
     }
 
@@ -111,7 +117,6 @@ public class Battle implements Serializable{
             System.out.println(
                     entry.getKey() + ". " + entry.getValue().getName() + " (" + String.valueOf(entry.getValue().getUsesRemaining()) + " uses left)");
         }
-        Scanner scanner = new Scanner(System.in);
         String choice = scanner.next();
 
         if (powers.containsKey(choice)) 
@@ -127,7 +132,6 @@ public class Battle implements Serializable{
                 System.out.println("No uses left for this power!");
             }
         }
-        scanner.close();
         return null;
     }
 
