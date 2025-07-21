@@ -1,6 +1,6 @@
 // Hero class (player-controlled)
 
-public class Hero extends Character
+public class Hero extends Charact
 {
     private int price;
     

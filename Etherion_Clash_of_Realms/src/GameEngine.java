@@ -1,6 +1,11 @@
 import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -12,6 +17,7 @@ public class GameEngine implements Serializable
     private Scanner scanner;
     private boolean isRunning;
     private GameDataLoader dataLoader;
+    private static final String FILE_PATH = "usernames.txt";
     
     public GameEngine() 
     {
@@ -85,10 +91,35 @@ public class GameEngine implements Serializable
         System.out.print("Enter your username: ");
         String username = scanner.nextLine();
         
-        // TODO: Add username uniqueness check
+        while (true)
+        {
+            boolean addUsernameSuccess = addUsername(username);
+            if (addUsernameSuccess)
+            {
+                break; 
+            } 
+            else 
+            {
+                System.out.print("Please enter a different username: ");
+                username = scanner.nextLine();
+            }
+        }
 
         System.out.print("Enter your password: ");
         String password = scanner.nextLine();
+
+        while (true)
+        {
+            if (isPasswordValid(password)) 
+            {
+                break; 
+            } 
+            else 
+            {
+                System.out.print("Password must be at least 8 characters long, contain uppercase, lowercase, digits, and symbols. Please enter a valid password: ");
+                password = scanner.nextLine();
+            }
+        }
        
         System.out.println("\nChoose your elemental affinity:");
         System.out.println("1. Fire");
@@ -206,11 +237,11 @@ public class GameEngine implements Serializable
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("savegame.dat"))) 
         {
             oos.writeObject(player);
-            System.out.println("✅ Game saved successfully!");
+            System.out.println("Game saved successfully!");
         } 
         catch (IOException e) 
         {
-            System.err.println("❌ Failed to save game: " + e.getMessage());
+            System.err.println("Failed to save game: " + e.getMessage());
         }
     }
 
@@ -219,12 +250,101 @@ public class GameEngine implements Serializable
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("savegame.dat"))) 
         {
             player = (Player) ois.readObject();
-            System.out.println("✅ Game loaded! Welcome back, " + player.getName() + ".");
+            System.out.println("Game loaded! Welcome back, " + player.getName() + ".");
         } 
         catch (IOException | ClassNotFoundException e) 
         {
-            System.err.println("❌ Failed to load game: " + e.getMessage());
+            System.err.println("Failed to load game: " + e.getMessage());
             return;
         }
     }
+
+    public static boolean isUsernameUnique(String username) 
+    {
+        File file = new File(FILE_PATH);
+
+        if (!file.exists()) {
+            return true; // No file = no usernames yet
+        }
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) 
+        {
+            String line;
+            while ((line = reader.readLine()) != null) 
+            {
+                if (line.trim().equalsIgnoreCase(username.trim())) 
+                {
+                    return false; // Username already exists
+                }
+            }
+        } 
+        catch (IOException e) 
+        {
+            System.out.println("Error reading the file.");
+            e.printStackTrace();
+        }
+
+        return true; 
+    }
+
+    public static boolean addUsername(String username) 
+    {
+        if (isUsernameUnique(username)) 
+        {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH, true))) 
+            {
+                writer.write(username);
+                writer.newLine();
+                System.out.println("Username added successfully.");
+                return true;
+            } 
+            catch (IOException e) 
+            {
+                System.out.println("Error writing to the file.");
+                e.printStackTrace();
+                return false;
+            }
+        } 
+        else 
+        {
+            System.out.println("Username already exists. Please choose another one.");
+            return false;
+        }
+    }
+
+    public static boolean isPasswordValid(String password) 
+    {
+        if (password.length() <= 8) 
+        {
+            return false;
+        }
+
+        boolean hasUpper = false;
+        boolean hasLower = false;
+        boolean hasDigit = false;
+        boolean hasSymbol = false;
+
+        for (char c : password.toCharArray()) 
+        {
+            if (Character.isUpperCase(c)) 
+            {
+                hasUpper = true;
+            } 
+            else if (Character.isLowerCase(c)) 
+            {
+                hasLower = true;
+            } 
+            else if (Character.isDigit(c)) 
+            {
+                hasDigit = true;
+            } 
+            else if (!Character.isLetterOrDigit(c)) 
+            {
+                hasSymbol = true;
+            }
+        }
+        return hasUpper && hasLower && hasDigit && hasSymbol;
+}
+
+    
 }

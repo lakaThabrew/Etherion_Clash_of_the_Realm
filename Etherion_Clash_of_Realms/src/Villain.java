@@ -2,7 +2,8 @@ import java.util.List;
 import java.util.ArrayList;
 
 // Villain class (inherits from Character)
-public class Villain extends Character {
+public class Villain extends Charact
+{
     private String missionId;
     private List<String> powerIds; 
     private String shieldId;

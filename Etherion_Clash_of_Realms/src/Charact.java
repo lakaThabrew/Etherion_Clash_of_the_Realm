@@ -2,7 +2,7 @@
 
 import java.io.Serializable;
 
-public class Character implements Serializable
+public class Charact implements Serializable
 {
     protected String id;
     protected String name;
@@ -11,7 +11,7 @@ public class Character implements Serializable
     protected int defense;
     protected float speed;
 
-    public Character(String id, String name, String element, int attack, int defense, float speed) 
+    public Charact(String id, String name, String element, int attack, int defense, float speed) 
     {
         this.id = id;
         this.name = name;

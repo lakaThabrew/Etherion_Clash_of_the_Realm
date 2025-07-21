@@ -135,29 +135,33 @@ public class GameDataLoader implements Serializable
 
     public HashMap<String, Mission> getMissions() 
     {
+        /*
         for (Mission mission : missions.values()) 
         {
             System.out.println(mission.getMissionDetails()); // Print each mission's details
-        }
+        }*/
 
         return missions;
     }
 
     public HashMap<String, Power> getPowers() 
     {
+        /*
         for (Power power : powers.values()) 
         {
             System.out.println(power.toString()); // Print each power's details
-        }
+        }*/
+
         return powers;
     }
 
     public HashMap<String, Shield> getShields() 
     {
+        /*
         for (Shield shield : shields.values()) 
         {
             System.out.println(shield.toString()); // Print each shield's details
-        }
+        }*/
         return shields;
     }
 

@@ -32,7 +32,7 @@ public class Battle implements Serializable{
 
         Mission mission = dataLoader.getMissions().get(missionIndex);
         Villain villain = dataLoader.getVillains().get(villainIndex);
-        Character hero = player.getCurrentHero();
+        Charact hero = player.getCurrentHero();
 
         double playerHealth = 100.0;
         double villainHealth = 100.0;
@@ -85,12 +85,12 @@ public class Battle implements Serializable{
         }
 
         if (playerHealth > 0) {
-            System.out.println("\n✅ You WON!");
+            System.out.println("\nYou WON!");
             player.levelUp();
             player.addCoins(500); // or based on mission
             System.out.println("You leveled up to " + player.getLevel() + " and earned 500 coins!");
         } else {
-            System.out.println("\n❌ You LOST...");
+            System.out.println("\nYou LOST...");
             player.spendCoins(100); // 20% logic can be improved
             System.out.println("You lost 100 coins.");
         }
@@ -131,7 +131,7 @@ public class Battle implements Serializable{
         return null;
     }
 
-    private double calculateDamage(Character attacker, Character defender, Power power, Shield opponentShield)       
+    private double calculateDamage(Charact attacker, Charact defender, Power power, Shield opponentShield)       
     {
         double attackPart = attacker.getAttack() * power.getAttackValue();
         double speedBoost = 1 + attacker.getSpeed();
