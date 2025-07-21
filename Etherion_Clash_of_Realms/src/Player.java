@@ -171,6 +171,7 @@ public class Player implements Serializable
             }
         }
         System.out.print("Enter shield id: ");
+        @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         String choice = scanner.next();
 
